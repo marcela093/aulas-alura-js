@@ -13,9 +13,7 @@ for (i = 0; i < pacientes.length; i++) {
     const altura = paciente.querySelector('.info-altura').textContent;
 
 
-    // Cálculo IMC
-    const imc = peso / (altura * altura);
-
+    // Validação IMC
     const valorImc = paciente.querySelector('.info-imc');
 
     let pesoValido = true;
@@ -34,7 +32,13 @@ for (i = 0; i < pacientes.length; i++) {
     }
 
     if (pesoValido && alturaValida) {
-        // toFixed ajusta a quantidade de casas que queremos imprimir na tela
-        valorImc.textContent = imc.toFixed(2);
+       valorImc.textContent = calculaImc(peso, altura);
     }
+}
+
+function calculaImc(peso, altura){
+    let imc = 0;
+    imc = peso / (altura * altura);
+     // toFixed ajusta a quantidade de casas que queremos imprimir na tela
+    return imc = imc.toFixed(2);
 }
