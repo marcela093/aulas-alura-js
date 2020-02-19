@@ -16,23 +16,40 @@ for (i = 0; i < pacientes.length; i++) {
     // Validação IMC
     const valorImc = paciente.querySelector('.info-imc');
 
-    let pesoValido = true;
-    let alturaValida = true;
+    let pesoValido = validaPeso(peso);
+    let alturaValida = validaAltura(altura);
 
-    if (peso <= 0 || peso >= 400) {
-        valorImc.textContent = 'peso inválido';
+    if (!pesoValido){
         pesoValido = false;
+        valorImc.textContent = 'peso inválido';
         paciente.classList.add('erro')
     }
 
-    if (altura <= 0 || altura >= 3.00) {
-        valorImc.textContent = 'altura inválida';
+    if (!alturaValida){
+        
         alturaValida = false;
+        valorImc.textContent = 'altura inválida';
         paciente.classList.add('erro');
     }
 
     if (pesoValido && alturaValida) {
        valorImc.textContent = calculaImc(peso, altura);
+    }
+}
+
+function validaPeso(peso){
+    if(peso >= 0 && peso < 400){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function validaAltura(altura){
+    if(altura >= 0 && altura <= 3.0){
+        return true;
+    }else{
+        return false;
     }
 }
 
@@ -42,3 +59,6 @@ function calculaImc(peso, altura){
      // toFixed ajusta a quantidade de casas que queremos imprimir na tela
     return imc = imc.toFixed(2);
 }
+
+
+

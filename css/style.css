@@ -136,3 +136,12 @@ button[disabled=disabled], button:disabled {
 .erro{
 	background-color: lightcoral;
 }
+
+.msgs-erro{
+	color: #ff0000;
+}
+
+.fade-out{
+	opacity: 0;
+	transition: 0.5s;
+}
