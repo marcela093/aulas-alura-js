@@ -4,24 +4,30 @@ botao.addEventListener('click', function (event) {
     event.preventDefault();
 
     let form = document.querySelector('.form');
-    let paciente = dadosPaciente(form)
-    let pacienteTr = criaTr(paciente)
+    let paciente = dadosPaciente(form);
+    
 
     let erros = validaPaciente(paciente);
-    console.log(erros)
+    console.log(erros);
     if(erros.length > 0){
         exibeMsgErros(erros);
         return;
     }
 
-    let tabela = document.getElementById('tabela-pacientes');
-    tabela.appendChild(pacienteTr);
+    addPacienteNaTabela(paciente);
 
+    
     form.reset();
     let ocultaMsgErro = document.querySelector('.msgs-erro');
     ocultaMsgErro.innerHTML = '';
 });
 
+function addPacienteNaTabela(paciente){
+    let pacienteTr = criaTr(paciente);
+    let tabela = document.getElementById('tabela-pacientes');
+    tabela.appendChild(pacienteTr);
+
+}
 
 function exibeMsgErros(erros){
     let ul = document.querySelector('.msgs-erro');
