@@ -1,4 +1,4 @@
-# Exercícios das aulas do curso de JavaScript: Programando na Linguagem da Web - Alura
+# Exercícios do Curso de JavaScript: Programando na Linguagem da Web - Alura
 
 <ul>
   <li>Variáveis e Operadores</li>
